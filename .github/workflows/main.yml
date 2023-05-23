@@ -1,0 +1,25 @@
+name: KNN Projesi
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout kodu
+        uses: actions/checkout@v2
+
+      - name: Python 3.x kullan
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+
+      - name: Gerekli paketleri yükle
+        run: pip install -r requirements.txt
+
+      - name: KNN modelini çalıştır
+        run: python knn.py
